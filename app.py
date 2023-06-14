@@ -1,4 +1,3 @@
-import os
 import sys
 from threading import Thread
 
@@ -7,20 +6,14 @@ TODO
 * eventually add support for removing colors by clicking them in the color showcase
 """
 
-from PIL import Image, ImageQt
 
 from pynput import keyboard
 
 from custom_gui_widgets import *
 from Scrawler import *
 
-from PyQt6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-                            QMetaObject, QObject, QPoint, QRect,
-                            QSize, QTime, QUrl, Qt, QTimer)
-from PyQt6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-                           QFont, QFontDatabase, QGradient, QIcon,
-                           QImage, QKeySequence, QLinearGradient, QPainter,
-                           QPalette, QPixmap, QRadialGradient, QTransform)
+from PyQt6.QtCore import (QCoreApplication, QMetaObject, QSize, Qt, QTimer)
+from PyQt6.QtGui import (QFont, QIcon, QPixmap)
 from PyQt6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
                                QHBoxLayout, QLabel, QMainWindow, QPushButton,
                                QSizePolicy, QSlider, QSpacerItem, QToolButton,
@@ -611,7 +604,7 @@ class Ui_scrawler_gui(object):
 
     def retranslateUi(self, scrawler_gui):
         scrawler_gui.setWindowTitle(QCoreApplication.translate(
-            "scrawler_gui", u"scrawler_gui", None))
+            "scrawler_gui", u"Scrawler", None))
         self.game_label.setText(QCoreApplication.translate(
             "scrawler_gui", u"Select a game/program", None))
         self.brush_size_label.setText(QCoreApplication.translate(

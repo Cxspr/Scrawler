@@ -86,7 +86,7 @@ class Ui_scrawler_gui(object):
         self.draw_speed_slider.setMinimum(0)
         self.draw_speed_slider.setMaximum(8)
         self.draw_speed_slider.setSingleStep(1)
-        self.draw_speed_slider.setValue(0)
+        self.draw_speed_slider.setValue(4)
         self.draw_speed_slider.setOrientation(Qt.Orientation.Horizontal)
         self.draw_speed_slider.setTickPosition(QSlider.TickPosition.TicksAbove)
         self.draw_speed_slider.setTickInterval(1)

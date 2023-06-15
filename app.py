@@ -344,7 +344,9 @@ class Ui_scrawler_gui(object):
         self.close.clicked.connect(self.close_event) 
         self.undo.clicked.connect(self.undo_event)
         self.toggle_vis.clicked.connect(self.toggle_vis_event)
+        
         self.draw.clicked.connect(self.draw_event)
+        self.small_draw.clicked.connect(self.draw_event)
         
         self.collapse.clicked.connect(self.collapse_event)
         

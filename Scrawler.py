@@ -219,16 +219,20 @@ class GameDef():
         return self.cal.canvas_bounds
         
     def get_calibration_params(self):
-        palette = Image.new("P", (16, 16))
-        # colors = list(sum(list(self.cal.colors.keys()), ()))
-        colors = list(self.cal.colors.keys())
-        color_data = ( # following code ensures palette is always 768 in length with only desired colors
-            sum( [list(x) for x in colors], []) #flattens nested array
-            + list(colors[-1] * (256 - len(colors))) #fill rest of color_space with a preexisting value as a dummy
-        )[:256*3] # trim if needed
-        palette.putdata(color_data)
+        # palette = Image.new("P", (16, 16))
+        # # colors = list(sum(list(self.cal.colors.keys()), ()))
+        # colors = list(self.cal.colors.keys())
+        # color_data = ( # following code ensures palette is always 768 in length with only desired colors
+        #     sum( [list(x) for x in colors], []) #flattens nested array
+        #     + list(colors[-1] * (256 - len(colors))) #fill rest of color_space with a preexisting value as a dummy
+        # )[:256*3] # trim if needed
+        # palette.putdata(color_data)
         
-        return palette, list(sum(colors)), self.cal.canvas_bounds 
+        # return palette, list(sum(colors)), self.cal.canvas_bounds
+        palette, colors = self.get_color_params()
+        return palette, colors, self.cal.canvas_bounds
+        
+        
 
     def is_calibrated(self) -> bool:
         return self.cal.stage == 3

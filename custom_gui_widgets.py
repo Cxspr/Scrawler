@@ -84,7 +84,8 @@ class GraphicsBucket(QLabel):
                 self.original_image = image
                 self.using_original = True
                 self.parent.gfx_button_callback(True)
-            except:
+            except Exception as e:
+                print(e)
                 return
       
     # add further support for user interaction triggers to change the displayed file

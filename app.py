@@ -4,6 +4,7 @@ from threading import Thread
 """
 TODO
 * eventually add support for removing colors by clicking them in the color showcase
+* currently changing images after drawing one is broken
 """
 
 
@@ -376,6 +377,12 @@ class Ui_scrawler_gui(object):
                 self.pick_canvas.setEnabled(True)
                 self.color_selection.setVisible(False)
                 self.using_custom = False
+            self.scrawler.canvas = []
+            self.scrawler.palette = None
+            self.generate.setEnabled(False)
+            self.undo_event()
+            for i in reversed(range(self.color_showcase.count())):
+                self.color_showcase.itemAt(i).widget().setParent(None)
                 
     def brush_size_change(self, value):
         self.brush_size = value
@@ -402,6 +409,7 @@ class Ui_scrawler_gui(object):
         self.scrawler.game.color_selection = self.color_selection_types[self.color_selection.currentText()]
         
     def gfx_button_callback(self, has_img):
+        self.scrawler.im_src = None
         cal_done = self.scrawler.game is not None and self.scrawler.check_calibration_params()
         self.generate.setEnabled(cal_done)
         self.close.setEnabled(True)
